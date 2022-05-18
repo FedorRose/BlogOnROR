@@ -1,0 +1,50 @@
+<div id="wrapper">
+      <div class="row"></div>
+ <div class="row">
+
+   <div class="main_ph" style="background-image: url(<%= @post.image.url %>);"></div>
+       <div class="wh">
+           <div class="content">
+           <span class="title"><%= @post.title %></span><br>
+           <span class="text"><%= @post.text %> </span>
+           </div>
+       </div>
+           <span class="side"> post.cat <br><br>
+                              <%= @post.created_at %><br><br></span>
+                              <a href="#comments" class="side-a"> Comments</a>
+
+ </div>
+</div>
+
+<div class="row" id="comments">
+     <div class="comm">Comments</div><br>
+     <% @comments.each do |comment| %>
+        <div class="comment">
+            <h3><%= comment.username %></h3>
+            <p style="color:rgba(0, 0, 0, 0.7)"><%= comment.created_at %></p>
+            <p><%= comment.body %></p>
+        </div>
+     <% end %>
+
+</div>
+
+<div class="row">
+  <div class="start">Say something</div>
+
+         <%= form_for([@post, @post.comment.build]) do |f| %>
+
+             <div class="fn">
+                 <%= f.text_field(:username, {:class => 'fn'}) %>
+             </div>
+
+             <div class="mes" style="top:11rem;">
+               <%= f.text_area(:body, {:class => 'mes'}) %>
+             </div>
+
+             <%= f.hidden_field :post_id %>
+
+             <%= f.submit("COMMENT", {:class => 'pc'}) %>
+             <!-- <button type="submit" class="pc">POST COMMENT</button> -->
+          <% end %>
+
+</div>

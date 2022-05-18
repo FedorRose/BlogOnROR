@@ -1,0 +1,17 @@
+<div class="main_photo" style="background-image: url('img_bg_1.jpg');"></div>
+  <div id="wrapper">
+    <div class="row">
+      <% @posts.each do |post| %>
+
+       <div class="col-5" style="background-image:
+        url(<%= post.image.url %>);">
+        <span class="hr-big"><%= link_to post.title,
+          show_path(:post_slug => post.slug, :cat_slug => Cat.find(post.cat_id).slug),
+          class: "hr-big" %></span>
+        <span class="name-big"><%= post.subtitle %></span>
+       </div>
+
+      <% end %>
+
+  </div>
+</div>

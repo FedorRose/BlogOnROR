@@ -1,0 +1,14 @@
+<div class="main_photo" style="background-image: url('akula.jpg');"></div>
+  <div id="wrapper">
+    <div class="row">
+      <% @posts.each do |post| %>
+       <div class="col-5" style="background-image:
+        url(<%= post.image.url %>);">
+        <span class="hr-big"><%= link_to post.title, show_path(:post_slug => post.slug), class: "hr-big" %></span>
+        <span class="name-big"><%= post.subtitle %></span>
+       </div>
+
+      <% end %>
+
+  </div>
+</div>

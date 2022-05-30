@@ -9,7 +9,7 @@
            <span class="text"><%= @post.text %> </span>
            </div>
        </div>
-           <span class="side"> post.cat <br><br>
+           <span class="side"><%= Cat.find(@post.cat_id).title %><br><br>
                               <%= @post.created_at %><br><br></span>
                               <a href="#comments" class="side-a"> Comments</a>
 

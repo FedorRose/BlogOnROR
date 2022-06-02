@@ -11,7 +11,7 @@ services:
     expose:
       - '3306'
     volumes:
-      - db:/var/run/mysqld
+      - ./db:/var/lib/mysql 
     logging:
             driver: none
     ports:

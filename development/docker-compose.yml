@@ -2,7 +2,6 @@ version: "3.7"
 services:
   db:
     image: "mysql:5.7"
-    restart: always
     environment:
      MYSQL_ROOT_PASSWORD: root
      MYSQL_USERNAME: root
@@ -23,7 +22,7 @@ services:
     environment:
      DB_USERNAME: root
      DB_PASSWORD: root
-     DB_NAME: ecs_application_db
+     DB_NAME: blog
      DB_PORT: 3306
      DB_HOST: db
      RAILS_ENV: development
